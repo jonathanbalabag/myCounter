@@ -1,0 +1,30 @@
+﻿@model MyCounter.Models.Counter
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Counter Application </h2>submitted by jonathan balabag
+
+@using (Html.BeginForm("Index", "Counter", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+   <h3>Count : @ViewBag.myCounter.count</h3>
+    @Html.HiddenFor(m => m.isIncrease, new {@Value=true })
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default" value="Increase" />
+        </div>
+    </div>
+
+}
+@using (Html.BeginForm("Reset", "Counter", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+{
+    @Html.HiddenFor(m => m.isIncrease, new { @Value = false })
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" class="btn btn-default" value="reset" />
+        </div>
+    </div>
+
+}
